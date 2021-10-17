@@ -17,13 +17,13 @@ int main(){
 				printf("%d + %d = %d\n", a, b, add(a,b));
 				break;
 			case 2:
-				printf("%d - %d = %d\n", a, b, sub(a,b));
+				printf("%d - %d = %d\n", a, b, subtract(a,b));
 				break;
 			case 3:
-				printf("%d * %d = %d\n", a, b, mul(a,b));
+				printf("%d * %d = %d\n", a, b, multiply(a,b));
 				break;
 			case 4:
-				printf("%d / %d = %lf\n", a, b, div(a,b));
+				printf("%d / %d = %lf\n", a, b, divide(a,b));
 				break;
 		}
 	}

@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 
-void main(){
+int main(){
 	void*handle;
-	int (*add) (int,int), (*sub) (int, int), (*mul) (int, int);
-	double (*div) (int, int);
+	int (*add) (int,int), (*subtract) (int, int), (*multiply) (int, int);
+	double (*divide) (int, int);
 	char *error;
 	handle = dlopen("./lib/libshare.so", RTLD_LAZY);
 	if(!handle) {
@@ -16,17 +17,17 @@ void main(){
 		fprintf (stderr, "%s", error);
 		exit(1);
 	}
-	sub = dlsym(handle, "sub");
+	subtract = dlsym(handle, "subtract");
 	if ((error = dlerror()) != NULL){
 		fprintf (stderr, "%s", error);
 		exit(1);
 	}
-	mul = dlsym(handle, "mul");
+	multiply = dlsym(handle, "multiply");
 	if ((error = dlerror()) != NULL){
 		fprintf (stderr, "%s", error);
 		exit(1);
 	}
-	div = dlsym(handle, "div");
+	divide = dlsym(handle, "divide");
 	if ((error = dlerror()) != NULL){
 		fprintf (stderr, "%s", error);
 		exit(1);
@@ -38,7 +39,7 @@ void main(){
 	scanf("%d", &b);
 	
 	printf("add result : %d\n sub result : %d\n mul result : %d\n div result : %lf\n",
-		add(a,b), sub(a,b), mul(a,b), div(a,b));
+		add(a,b), subtract(a,b), multiply(a,b), divide(a,b));
 	return 0;
 	dlclose(handle);
 }
