@@ -1,0 +1,17 @@
+a.out : add.o div.o mul.o sub.o
+    gcc -o a.out add.o div.o mul.o sub.o
+
+add.o : add.c
+    gcc -c -o add.o add.c
+    
+div.o : div.c
+    gcc -c -o div.o div.c
+    
+mul.o : mul.c
+    gcc -c -o div.o div.c
+    
+sub.o : sub.c
+    gcc -c -o sub.o sub.c
+    
+main.o : main.c
+    gcc -c -o main.o main.c
